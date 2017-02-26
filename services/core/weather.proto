@@ -1,0 +1,47 @@
+syntax = "proto3";
+package weather;
+option go_package = "services/weather/generated";
+
+service Weather {
+	rpc Forecast(LatLong) returns (ForecastResponse) {}
+}
+
+message LatLong {
+	float latitude =  1;
+	float longitude = 2;
+}
+
+message ForecastResponse {
+	LatLong latlong = 1;
+	string TimeZone = 2;
+	Datapoint currently = 3;
+}
+
+message Datapoint {
+	int64 Time = 1;
+	string Summary = 2;
+	string Icon = 3;
+	int64 SunriseTime = 4;
+	int64 SunsetTime = 5;
+	float PrecipIntensity = 6;
+	float PrecipIntensityMax = 7;
+	int64 PrecipIntensityMaxTime = 8;
+	float PrecipProbability = 9;
+	string PrecipType = 10;
+	float PrecipAccumulation = 11;
+	float Temperature = 12;
+	float TemperatureMin = 13;
+	int64 TemperatureMinTime = 14;
+	float TemperatureMax = 15;
+	int64 TemperatureMaxTime = 16;
+	float ApparentTemperature = 17;
+	float DewPoint = 18;
+	float WindSpeed = 19;
+	float WindBearing = 20;
+	float CloudCover = 21;
+	float Humidity = 22;
+	float Pressure = 23;
+	float Visibility = 24;
+	float Ozone = 25;
+	float MoonPhase = 26;
+}

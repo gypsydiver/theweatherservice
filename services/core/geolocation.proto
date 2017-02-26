@@ -1,6 +1,6 @@
 syntax = "proto3";
 package geolocation;
-option go_package = "github.com/gypsydiver/theweatherservice/services/geolocation"
+option go_package = "github.com/gypsydiver/theweatherservice/services/geolocation/generated";
 
 service Geolocation {
 	rpc Locate(LocateRequest) returns (LocateResponse) {}
