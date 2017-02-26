@@ -1,0 +1,23 @@
+version: "2"
+services:
+  apigateway:
+    build:
+      context: ./services
+      dockerfile: ./apigateway/Dockerfile
+    links:
+      - geolocation
+      - weather
+  grpc-gateway:
+    links:
+      - apigateway
+    build:
+      context: ./services
+      dockerfile: ./grpc-gateway/Dockerfile
+  weather:
+    build:
+      context: ./services
+      dockerfile: ./weather/Dockerfile
+  geolocation:
+    build:
+      context: ./services
+      dockerfile: ./geolocation/Dockerfile

@@ -1,0 +1,24 @@
+syntax = "proto3";
+package geolocation;
+option go_package = "github.com/gypsydiver/theweatherservice/services/geolocation"
+
+service Geolocation {
+	rpc Locate(LocateRequest) returns (LocateResponse) {}
+}
+
+message LocateRequest {
+	repeated string IPs = 1;
+}
+
+message LocateResponse {
+	repeated Location locations = 1;
+}
+
+message Location {
+	string countryCode = 1;
+	string region = 2;
+	string city = 3;
+	string timezone = 4;
+	float latitude =  5;
+	float longitude = 6;
+}
