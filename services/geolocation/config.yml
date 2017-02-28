@@ -1,0 +1,4 @@
+Port: "8000"
+GeoliteDBDownloadURL: "http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz"
+GeoliteDBName: "GeoLite2-City.mmdb"
+IntervalUpdateDBInMonths: 1
