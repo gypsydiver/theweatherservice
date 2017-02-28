@@ -1,0 +1,46 @@
+hash: 003f7336ecf6d2551c5b491a6f3c76494db52264b2e0c840389fa521d0a89257
+updated: 2017-02-28T16:29:38.091574251-06:00
+imports:
+- name: github.com/agave/go-agave
+  version: 4079863c37a6f62ca0860cb7899f7426bb858d91
+  subpackages:
+  - config
+- name: github.com/golang/protobuf
+  version: 69b215d01a5606c843240eab4937eab3acee6530
+  subpackages:
+  - proto
+- name: github.com/oschwald/geoip2-golang
+  version: 496a3cbcb65a3cb54497fe4ae2273319e85160a4
+- name: github.com/oschwald/maxminddb-golang
+  version: 697da8075d2061aa8ed639346443f5d3e8c80b30
+- name: github.com/Sirupsen/logrus
+  version: 0208149b40d863d2c1a2f8fe5753096a9cf2cc8b
+- name: golang.org/x/net
+  version: 906cda9512f77671ab44f8c8563b13a8e707b230
+  subpackages:
+  - context
+  - http2
+  - http2/hpack
+  - idna
+  - internal/timeseries
+  - lex/httplex
+  - trace
+- name: golang.org/x/sys
+  version: 21f2569f6feb83b68a25c98c1b20eca5d4e1e6ae
+  subpackages:
+  - unix
+  - windows
+- name: google.golang.org/grpc
+  version: aefc96d792e01c7be09afa69b8c1cbfe3a21e2fc
+  subpackages:
+  - codes
+  - credentials
+  - grpclog
+  - internal
+  - metadata
+  - naming
+  - peer
+  - stats
+  - tap
+  - transport
+testImports: []
