@@ -17,15 +17,12 @@ var (
 	mutex sync.Mutex
 )
 
-// Init fetches and loads the Geolite2 db
-func Init() (err error) {
-	err = downloadDB()
-	if err != nil {
-		return
+// UpdateDB just refreshens the DB
+func UpdateDB() error {
+	if err := downloadDB(); err != nil {
+		return err
 	}
-
 	return openDB()
-	// log.Info("Database successfully loaded")
 }
 
 func downloadDB() error {
@@ -63,11 +60,4 @@ func QueryIP(ip net.IP) (*geoip2.City, error) {
 	mutex.Lock()
 	defer mutex.Unlock()
 	return db.City(ip)
-}
-
-func updateDB() error {
-	if err := downloadDB(); err != nil {
-		return err
-	}
-	return openDB()
 }

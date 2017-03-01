@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"time"
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/agave/go-agave/config"
@@ -13,6 +14,7 @@ func init() {
 	configureLogger()
 	loadConfiguration()
 	initGeoDB()
+	go updateGeoDB()
 }
 
 func configureLogger() {
@@ -32,14 +34,29 @@ func loadConfiguration() {
 }
 
 func initGeoDB() {
-	err := geoDB.Init()
-	if err != nil {
+	if err := geoDB.UpdateDB(); err != nil {
 		log.WithFields(log.Fields{
 			"error": err,
 		}).Panic("Error loading Geolite2 database")
 		return
 	}
 	log.Info("Geolite2 database successfully loaded")
+}
+
+func updateGeoDB() {
+	for {
+		oneMonth := time.Hour * 24 * 31
+		waitTime := oneMonth * time.Duration(util.Config.IntervalUpdateDBInMonths)
+		time.Sleep(waitTime)
+		log.Info("Updating Geolite2 DB")
+		if err := geoDB.UpdateDB(); err != nil {
+			log.WithFields(log.Fields{
+				"error": err,
+			}).Warn("Geolite2 DB update failed")
+		} else {
+			log.Info("Geolite2 DB has been updated")
+		}
+	}
 }
 
 func main() {

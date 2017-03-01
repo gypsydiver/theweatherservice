@@ -36,22 +36,6 @@ func (s *GeoDBTestSuite) TearDownSuite() {
 	s.mockDBServer.Close()
 }
 
-func (s *GeoDBTestSuite) TestInitDownload() {
-	util.Config.GeoliteDBName = "wrong-db.mmdb"
-	util.Config.GeoliteDBDownloadURL = s.mockDBServer.URL
-	err := Init()
-	s.A.Nil(err)
-	s.A.NotNil(db)
-}
-
-func (s *GeoDBTestSuite) TestInitDownloadWithWrongURLServer() {
-	util.Config.GeoliteDBName = "wrong-db.mmdb"
-	util.Config.GeoliteDBDownloadURL = "///"
-	err := Init()
-	s.A.NotNil(err)
-	s.A.Nil(db)
-}
-
 func (s *GeoDBTestSuite) TestDownloadMalformedGZBody() {
 	s.mockDBServer = httptest.NewServer(http.HandlerFunc(
 		func(w http.ResponseWriter, r *http.Request) {
@@ -77,7 +61,7 @@ func (s *GeoDBTestSuite) TestUpdateDB() {
 	util.Config.GeoliteDBName = "wrong-db.mmdb"
 	util.Config.GeoliteDBDownloadURL = s.mockDBServer.URL
 
-	err := updateDB()
+	err := UpdateDB()
 
 	s.A.Nil(err)
 	_, err = os.Stat(util.Config.GeoliteDBName)
@@ -85,7 +69,7 @@ func (s *GeoDBTestSuite) TestUpdateDB() {
 	os.Remove(util.Config.GeoliteDBName)
 
 	util.Config.GeoliteDBDownloadURL = "///"
-	err = updateDB()
+	err = UpdateDB()
 	s.A.NotNil(err)
 }
 
