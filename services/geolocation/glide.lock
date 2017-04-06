@@ -1,22 +1,25 @@
-hash: 003f7336ecf6d2551c5b491a6f3c76494db52264b2e0c840389fa521d0a89257
-updated: 2017-02-28T16:29:38.091574251-06:00
+hash: b9468b503a8bff7d0ce342e9fc31ee41198d8fd97370f780cee1074be96faa7b
+updated: 2017-04-06T14:09:29.357586022-05:00
 imports:
-- name: github.com/agave/go-agave
-  version: 4079863c37a6f62ca0860cb7899f7426bb858d91
-  subpackages:
-  - config
 - name: github.com/golang/protobuf
-  version: 69b215d01a5606c843240eab4937eab3acee6530
+  version: 2bba0603135d7d7f5cb73b2125beeda19c09f4ef
   subpackages:
   - proto
+  - ptypes/any
+- name: github.com/google/go-genproto
+  version: 411e09b969b1170a9f0c467558eb4c4c110d9c77
+  subpackages:
+  - googleapis/rpc/status
+- name: github.com/gypsydiver/go-config
+  version: b9180d7ade4469863689aafdcad84d38e8b47068
 - name: github.com/oschwald/geoip2-golang
   version: 496a3cbcb65a3cb54497fe4ae2273319e85160a4
 - name: github.com/oschwald/maxminddb-golang
   version: 697da8075d2061aa8ed639346443f5d3e8c80b30
 - name: github.com/Sirupsen/logrus
-  version: 0208149b40d863d2c1a2f8fe5753096a9cf2cc8b
+  version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
 - name: golang.org/x/net
-  version: 906cda9512f77671ab44f8c8563b13a8e707b230
+  version: ffcf1bedda3b04ebb15a168a59800a73d6dc0f4d
   subpackages:
   - context
   - http2
@@ -26,21 +29,46 @@ imports:
   - lex/httplex
   - trace
 - name: golang.org/x/sys
-  version: 21f2569f6feb83b68a25c98c1b20eca5d4e1e6ae
+  version: 7de4796419dc3b554e6dab3a119a62469569d299
   subpackages:
   - unix
   - windows
+- name: golang.org/x/text
+  version: f4b4367115ec2de254587813edaa901bc1c723a8
+  subpackages:
+  - secure/bidirule
+  - transform
+  - unicode/bidi
+  - unicode/norm
 - name: google.golang.org/grpc
-  version: aefc96d792e01c7be09afa69b8c1cbfe3a21e2fc
+  version: 1d27587e10ceeec14017f9ebb5bf9ad3625cf58c
   subpackages:
   - codes
   - credentials
   - grpclog
   - internal
+  - keepalive
   - metadata
   - naming
   - peer
   - stats
+  - status
   - tap
   - transport
-testImports: []
+- name: gopkg.in/yaml.v2
+  version: a3f3340b5840cee44f372bddb5880fcbc419b46a
+testImports:
+- name: github.com/davecgh/go-spew
+  version: 04cdfd42973bb9c8589fd6a731800cf222fde1a9
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: d8ed2627bdf02c080bf22230dbb337003b7aba2d
+  subpackages:
+  - difflib
+- name: github.com/stretchr/testify
+  version: 4d4bfba8f1d1027c4fdbe371823030df51419987
+  subpackages:
+  - assert
+  - require
+  - suite

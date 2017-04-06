@@ -4,7 +4,3 @@ import:
   version: ^0.11.2
 - package: github.com/oschwald/geoip2-golang
   version: ~1.0.0
-- package: github.com/agave/go-agave
-  version: ~0.0.1
-  subpackages:
-  - config
